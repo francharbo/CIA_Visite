@@ -1,0 +1,114 @@
+<mvc:View
+		controllerName="fr.ar.cia.controller.Detail"
+		xmlns="sap.m"
+		xmlns:mvc="sap.ui.core.mvc"
+		xmlns:semantic="sap.m.semantic"
+		xmlns:f="sap.ui.layout.form"
+		xmlns:com="sap.ui.commons">
+
+	<semantic:DetailPage
+			id="page"
+			navButtonPress="onNavBack"
+			showNavButton="{device>/system/phone}"
+			title=""
+			busy="{detailView>/busy}"
+			busyIndicatorDelay="{detailView>/delay}">
+
+		<semantic:content>
+			<ObjectHeader
+					id="objectHeader">
+			</ObjectHeader>
+			<IconTabBar
+					id="iconTabBar"
+					class="sapUiResponsiveContentPadding">
+				<items>
+					<IconTabFilter
+							id="iconTabBarFilter1"
+							icon="sap-icon://hint"
+							tooltip="{i18n>detailIconTabBarInfo}" >
+							<f:SimpleForm title="Participants" editable="true" layout="ResponsiveGridLyaout">
+								<Label text="Pilote"/>
+								<Text text="{/Pilote/Prenom} {/Pilote/Nom}"/>
+								<Label text="Copilote"/>
+								<Text text="{/Copilote/Prenom} {/Copilote/Nom}"/>
+								<Label text="Participant"/>
+								<Text text="{/Participant}"/>
+							</f:SimpleForm>
+							<f:SimpleForm title="Détails de la visite" editable="true" layout="ResponsiveGridLyaout">
+								<Label text="Date"/>
+								<Text text="{/Date} {/Pilote/Nom}"/>
+								<Label text="Site"/>
+								<Text text="{/Site/Nom}"/>
+								<Label text="Secteur"/>
+								<Text text="{/Secteur/Nom}"/>
+								<Label text="Thème"/>
+								<Text text="{/Theme/Description}"/>
+								<Label text="Evaluation"/>
+								<com:RatingIndicator value="{/Rating}"
+									editable="true">
+								</com:RatingIndicator>
+							</f:SimpleForm>
+					</IconTabFilter>
+					<IconTabFilter
+							id="iconTabBarFilter2"
+							icon="sap-icon://message-warning"
+							tooltip="{i18n>detailIconTabBarAttachments}">
+						<Table headerText="Risques" items="{/Risque}">
+							<Column>
+								<Text text="Id"/>
+							</Column>
+							<Column>
+								<Text text="Pratique à risque"/>
+							</Column>
+							<Column>
+								<Text text="situation à risque"/>
+							</Column>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{Description}"/>
+										<Text text="{Pratique_a_risque}"/>
+										<Text text="{Situation_a_risque}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</IconTabFilter>
+					<IconTabFilter
+							id="iconTabBarFilter3"
+							icon="sap-icon://competitor"
+							tooltip="{i18n>detailIconTabBarAttachments}">
+						<Table headerText="Best Practices" items="{/BP}">
+							<Column>
+								<Text text="Id"/>
+							</Column>
+							<Column>
+								<Text text="Description"/>
+							</Column>
+							<Column>
+								<Text text="A partager"/>
+							</Column>
+							<items>
+								<ColumnListItem>
+									<cells>
+										<Text text="{ID}"/>
+										<Text text="{Description}"/>
+										<Text text="{A_partager}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</semantic:content>
+
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction
+					id="shareEmail"
+					press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+
+	</semantic:DetailPage>
+
+</mvc:View>
