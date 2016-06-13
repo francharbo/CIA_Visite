@@ -1,0 +1,52 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="fr.ar.cia.controller.Create"
+	xmlns:semantic="sap.m.semantic" xmlns:html="http=//www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form">
+	<App>
+		<semantic:DetailPage>
+			<semantic:customHeaderContent>
+				<HBox id="header" width="100%" height="100%">
+					<HBox width="100%" height="100%" class="header"></HBox>
+					<Image id="logoVSD" src="resource/Test_picto_VSD.jpg"/>
+				</HBox>
+			</semantic:customHeaderContent>
+			<semantic:content>
+				<f:SimpleForm id="form" title="Informations générales de la visite">
+					<Label text="ID" required="true"/>
+					<Text id="id"/>
+					<Label text="Date" required="true"/>
+					<DatePicker id="date"/>
+					<Label text="Pilote" required="true"/>
+					<ComboBox id="Pilote" items="{/Pilote}">
+						<core:ListItem text="{Prenom} {Nom}"/>
+					</ComboBox>
+					<Label text="Copilote" required="true"/>
+					<ComboBox id="Copilote" items="{/Copilote}">
+						<core:ListItem text="{Prenom} {Nom}"/>
+					</ComboBox>
+					<Label text="Site" required="true"/>
+					<ComboBox id="Site" items="{/Site}">
+						<core:ListItem text="{Nom}"/>
+					</ComboBox>
+					<Label text="Secteur" required="true"/>
+					<ComboBox id="Secteur" items="{/Secteur}">
+						<core:ListItem text="{Nom}"/>
+					</ComboBox>
+					<Label text="Thème" required="true"/>
+					<ComboBox id="Theme" items="{/Theme}">
+						<core:ListItem text="{Designation}"/>
+					</ComboBox>
+					<Label text="Participant" required="true"/>
+					<Input id="Participant"/>
+				</f:SimpleForm>
+				<Bar>
+					<contentRight>
+						<Button text="Valider" type="Emphasized" press="onValidate"/>
+						<Button text="Annuler" type="Reject" press="onCancel"/>
+					</contentRight>
+				</Bar>
+			</semantic:content>
+			<semantic:customFooterContent>
+				<HBox class="footer" width="100%" height="100%"></HBox>
+			</semantic:customFooterContent>
+		</semantic:DetailPage>
+	</App>
+</mvc:View>

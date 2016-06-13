@@ -29,6 +29,7 @@ sap.ui.define([
 				// call the base component's init function and create the App view
 				UIComponent.prototype.init.apply(this, arguments);
 				this.setModel(models.createVisiteModel(), "Visite");
+				this.setModel(models.createListeModel(), "Listes");
 				// create the views based on the url/hash
 				this.getRouter().initialize();
 			},

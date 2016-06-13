@@ -115,6 +115,30 @@
 						"master",
 						"detail"
 					]
+				},
+				{
+					"pattern": "create",
+					"name": "create",
+					"target": [
+						"master",
+						"create"
+					]
+				},
+				{
+					"pattern": "detailEdit/{Id}",
+					"name": "detailEdit",
+					"target": [
+						"master",
+						"detailEdit"
+					]
+				},
+				{
+					"pattern": "risquedetail/{visiteId}/{RisqueId}",
+					"name": "risquedetail",
+					"target": [
+						"master",
+						"risquedetail"
+					]
 				}
 			],
 			"targets": {
@@ -127,6 +151,21 @@
 				"detail": {
 					"viewName": "Detail",
 					"viewId": "detail",
+					"viewLevel": 2
+				},
+				"create": {
+					"viewName": "Create",
+					"viewId": "create",
+					"viewLevel": 2
+				},
+				"detailEdit": {
+					"viewName": "DetailEdit",
+					"viewId": "detailEdit",
+					"viewLevel": 2
+				},
+				"risquedetail": {
+					"viewName": "RisqueDetail",
+					"viewId": "risquedetail",
 					"viewLevel": 2
 				},
 				"detailObjectNotFound": {
@@ -143,5 +182,9 @@
 				}
 			}
 		}
+	},
+	"sap.platform.hcp": {
+		"uri": "webapp",
+		"_version": "1.1.0"
 	}
 }

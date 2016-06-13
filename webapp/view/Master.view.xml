@@ -1,62 +1,33 @@
-<mvc:View
-		controllerName="fr.ar.cia.controller.Master"
-		xmlns:mvc="sap.ui.core.mvc"
-		xmlns:core="sap.ui.core"
-		xmlns="sap.m"
-		xmlns:semantic="sap.m.semantic">
-
-	<semantic:MasterPage
-			id="page"
-			title="visite Sécurité"
-			navButtonPress="onNavBack"
-			showNavButton="true">
-		<semantic:subHeader >
-			<Bar id="headerBar" >
+<mvc:View xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:semantic="sap.m.semantic"
+	controllerName="fr.ar.cia.controller.Master">
+	<semantic:MasterPage id="page" >
+		<semantic:customHeaderContent>
+			<HBox id = "header" width="100%" height="100%" class="header">
+				<Image id="logoText" src="resource/VSD_text_logo.png"/>
+			</HBox>
+		</semantic:customHeaderContent>
+		<semantic:subHeader>
+			<Bar id="headerBar">
 				<contentMiddle>
-					<SearchField
-							id="searchField"
-							showRefreshButton="{= !${device>/support/touch} }"
-							tooltip="{i18n>masterSearchTooltip}"
-							width="100%"
-							search="onSearch">
-					</SearchField>
+					<SearchField id="searchField" showRefreshButton="{= !${device>/support/touch} }" tooltip="{i18n>masterSearchTooltip}" width="100%"
+						search="onSearch"></SearchField>
 				</contentMiddle>
 			</Bar>
 		</semantic:subHeader>
-
 		<semantic:content>
-			<PullToRefresh
-					id="pullToRefresh"
-					visible="{device>/support/touch}"
-					refresh="onRefresh" />
+			<PullToRefresh id="pullToRefresh" visible="{device>/support/touch}" refresh="onRefresh"/>
 			<!-- For client side filtering add this to the items attribute:  parameters: {operationMode: 'Client'}}" -->
-			<List
-					id="list"
-					items="{/Visites}"
-					busyIndicatorDelay="{masterView>/delay}"
-					noDataText="{masterView>/noDataText}"
-					growing="true"
-					growingScrollToLoad="true"
-					>
+			<List id="list" items="{/Visites}" busyIndicatorDelay="{masterView>/delay}" noDataText="{masterView>/noDataText}" growing="true"
+				growingScrollToLoad="true">
 				<infoToolbar>
-					<Toolbar
-							active="true"
-							id="filterBar"
-							visible="{masterView>/isFilterBarVisible}"
-							press="onOpenViewSettings">
-						<Title
-								id="filterBarLabel"
-								text="{masterView>/filterBarLabel}" />
+					<Toolbar active="true" id="filterBar" visible="{masterView>/isFilterBarVisible}" press="onOpenViewSettings">
+						<Title id="filterBarLabel" text="{masterView>/filterBarLabel}"/>
 					</Toolbar>
 				</infoToolbar>
 				<items>
-					<ObjectListItem
-							type="Active"
-							press="onSelectionChange"
-							title="{ID}" 
-							intro="{Theme/Description}">
+					<ObjectListItem type="Active" press="onSelectionChange" title="{ID}" intro="{Theme/Description}">
 						<firstStatus>
-							<ObjectStatus text="{Rating}"/> 
+							<ObjectStatus text="{Rating}"/>
 						</firstStatus>
 						<secondStatus>
 							<ObjectStatus text="{Secteur/Nom}"/>
@@ -64,7 +35,7 @@
 						<attributes>
 							<ObjectAttribute text="{Action/Date_debut}"/>
 							<ObjectAttribute text="Site: {Site/Nom}"/>
-							<ObjectAttribute text="Pilote: {Pilote/Preom} {Pilote/Nom}"/>
+							<ObjectAttribute text="Pilote: {Pilote/Prenom} {Pilote/Nom}"/>
 							<ObjectAttribute text="Copilote: {Copilote/Prenom} {Copilote/Nom}"/>
 							<ObjectAttribute text="Secteur: {Secteur/Nom}"/>
 						</attributes>
@@ -72,7 +43,13 @@
 				</items>
 			</List>
 		</semantic:content>
-
+		<semantic:customFooterContent>
+			<HBox id="footer" width="100%" height="100%" class="footer" justifyContent="SpaceBetween">
+				<items>
+					<Image id="footerLogo" src="resource/Avril_logo_pointjaune_RVB.png"/>
+					<Button icon="sap-icon://add" press="AddVisite"/>
+				</items>
+			</HBox>
+		</semantic:customFooterContent>
 	</semantic:MasterPage>
-
 </mvc:View>

@@ -1,7 +1,6 @@
 <mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:f="sap.ui.layout.form" xmlns:com="sap.ui.commons"
-	controllerName="fr.ar.cia.controller.Detail">
-	<semantic:DetailPage id="page" busy="{detailView>/busy}"
-		busyIndicatorDelay="{detailView>/delay}" showSubHeader="false">
+	controllerName="fr.ar.cia.controller.DetailEdit">
+	<semantic:DetailPage id="page" busy="{detailView>/busy}" busyIndicatorDelay="{detailView>/delay}">
 		<semantic:customHeaderContent>
 			<HBox id="header" width="100%" height="100%">
 			<HBox width="100%" height="100%" class="header">
@@ -11,35 +10,35 @@
 			</HBox>
 		</semantic:customHeaderContent>
 		<semantic:content>
-			<!-- sap.m.IBar -->
 			<ObjectHeader id="objectHeader"/>
 			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
 				<items>
-					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}" iconColor="Positive">
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}">
 						<f:SimpleForm title="Participants" editable="true" layout="ResponsiveGridLyaout">
 							<Label text="Pilote"/>
-							<Text text="{/Pilote/Prenom} {/Pilote/Nom}"/>
+							<Input value="{Visite>Pilote/Prenom}"/>
+							<Input value="{Visite>Pilote/Nom}"/>
 							<Label text="Copilote"/>
-							<Text text="{/Copilote/Prenom} {/Copilote/Nom}"/>
+							<Input value="{Visite>Copilote/Prenom}"/>
+							<Input value="{Visite>Copilote/Nom}"/>
 							<Label text="Participant"/>
-							<Text text="{/Participant}"/>
+							<Input value="{Visite>Participant}"/>
 						</f:SimpleForm>
 						<f:SimpleForm title="Détails de la visite" editable="true" layout="ResponsiveGridLyaout">
 							<Label text="Date"/>
-							<Text text="{/Date} {/Pilote/Nom}"/>
+							<Input value="{Visite>Date} {Visite>Pilote/Nom}"/>
 							<Label text="Site"/>
-							<Text text="{/Site/Nom}"/>
+							<Input value="{Visite>Site/Nom}"/>
 							<Label text="Secteur"/>
-							<Text text="{/Secteur/Nom}"/>
+							<Input value="{Visite>Secteur/Nom}"/>
 							<Label text="Thème"/>
-							<Text text="{/Theme/Description}"/>
+							<Input value="{Visite>Theme/Description}"/>
 							<Label text="Evaluation"/>
-							<com:RatingIndicator value="{/Rating}" editable="false"/>
+							<com:RatingIndicator value="{Visite>Rating}" editable="true"/>
 						</f:SimpleForm>
 						<Bar>
 							<contentRight>
-								<Button icon="sap-icon://edit" type="Emphasized" text="Editer" press="onEdit"/>
-								<Button type="Accept" text="Imprimer" press="onPrint" icon="sap-icon://print"/>
+								<Button icon="sap-icon://save" type="Emphasized" text="Save" press="onSave"/>
 							</contentRight>
 						</Bar>
 					</IconTabFilter>
@@ -81,7 +80,7 @@
 								</Column>
 							</columns>
 							<items>
-								<ColumnListItem type="Navigation" press="RisqueDetails">
+								<ColumnListItem>
 									<cells>
 										<Text text="{Description}"/>
 										<Text text="{Pratique_a_risque}"/>
@@ -95,8 +94,7 @@
 			</IconTabBar>
 		</semantic:content>
 		<semantic:customFooterContent>
-			<HBox class="footer" width="100%" height="100%">
-			</HBox>
+			<HBox class="footer" width="100%" height="100%"></HBox>
 		</semantic:customFooterContent>
 	</semantic:DetailPage>
 </mvc:View>

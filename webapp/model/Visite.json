@@ -1,6 +1,6 @@
 {
 	"Visites": [{
-		"ID": "VIS-0001",
+		"ID": "AvrAbe-0001",
 		"Date": "04/01/2016",
 		"Statut": "Closed",
 		"Rating": 4.00,
@@ -29,18 +29,25 @@
 		},
 		"Risque": [{
 			"ID": "R00001",
-			"Description": "Risque 1",
+			"Description": "Caisson du camion laissé ouvert sur le chemin",
 			"Pratique_a_risque": "oui",
 			"Situation_a_risque": "non",
-			"Action": "A00001"
+			"Action": [{
+				"ID":"A00001",
+				"Description":"A demandé au chauffeur de fermer le caisson",
+				"DateDebut":"05/01/2016",
+				"DateFin":"01/05/2016",
+				"Statut":"Fermée",
+				"Responsables":"Roche du Luart"
+			}]
 		}],
 		"BP": [{
 			"ID": "BP00001",
-			"Description": "Bonne pratique 1",
+			"Description": "Soutenir le flexible pour éviter sa chute à terre",
 			"A_partager": "Oui"
 		}]
 	}, {
-		"ID": "VIS-0002",
+		"ID": "AvrAgr-0002",
 		"Date": "05/01/2016",
 		"Statut": "Open ",
 		"Rating": 2.00,
@@ -69,18 +76,18 @@
 		},
 		"Risque": [{
 			"ID": "R00002",
-			"Description": "Risque 2",
+			"Description": "Une clé est accrochée au flexible et gêne dans le déplacement",
 			"Pratique_a_risque": "non",
 			"Situation_a_risque": "oui",
 			"Action": "A00002"
 		}],
 		"BP": [{
 			"ID": "BP00002",
-			"Description": "Bonne pratique 2",
+			"Description": "Met sa clé et virifie que le cran est bien enclenché",
 			"A_partager": "Non"
 		}]
 	}, {
-		"ID": "VIS-0003",
+		"ID": "AvrSop-0003",
 		"Date": "07/01/2016",
 		"Statut": "Closed",
 		"Rating": 5.00,
@@ -109,14 +116,14 @@
 		},
 		"Risque": [{
 			"ID": "R00003",
-			"Description": "Risque 3",
+			"Description": "Ne fléchit pas les genoux pour soulever",
 			"Pratique_a_risque": "oui",
 			"Situation_a_risque": "non",
 			"Action": "A00003"
 		}],
 		"BP": [{
 			"ID": "BP00003",
-			"Description": "Bonne pratique 3",
+			"Description": "S'écarte avant la mise en pression",
 			"A_partager": "Non"
 		}]
 	}]

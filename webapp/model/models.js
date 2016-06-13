@@ -13,6 +13,10 @@ sap.ui.define([
 			createVisiteModel: function() {
 				var path = jQuery.sap.getModulePath("fr.ar.cia");
 				return new JSONModel([path, "model/Visite.json"].join("/"));
+			},
+			createListeModel: function() {
+				var path = jQuery.sap.getModulePath("fr.ar.cia");
+				return new JSONModel([path, "model/Listes.json"].join("/"));
 			}
 		};
 

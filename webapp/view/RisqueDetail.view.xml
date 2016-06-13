@@ -1,0 +1,52 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:com="sap.ui.commons" controllerName="fr.ar.cia.controller.RisqueDetail">
+	<App>
+		<semantic:DetailPage>
+		<semantic:customHeaderContent>
+			<HBox id="header" width="100%" height="100%">
+			<HBox width="100%" height="100%" class="header">
+				
+			</HBox>
+			<Image id="logoVSD" src="resource/Test_picto_VSD.jpg" />
+			</HBox>
+		</semantic:customHeaderContent>
+			<semantic:content>
+				<l:VerticalLayout width="100%">
+					<l:content>
+						<ObjectListItem width="100%" number="{Visite>ID}" title="{Visite>Description}" icon="sap-icon://message-warning"></ObjectListItem>
+						<Table headerText="Actions et suivi" items="{Visite>Action}">
+							<columns>
+								<Column>
+									<Text text="Numéro"/>
+								</Column>
+								<Column>
+									<Text text="Responsables"/>
+								</Column>
+								<Column>
+									<Text text="Dates"/>
+								</Column>
+								<Column>
+									<Text text="Statut"/>
+								</Column>
+							</columns>
+							<items>
+								<ColumnListItem >
+									<cells>
+										<ObjectIdentifier title="{Visite>ID}" text="{Visite>Description}"/>
+										<Text text="{Visite>Responsables}"/>
+										<ObjectIdentifier title="{Visite>DateDebut}" text="{Visite>DateFin}"/>
+										<Text text="{Visite>Statut}"/>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</l:content>
+					<!-- sap.ui.core.Control -->
+				</l:VerticalLayout>
+			</semantic:content>
+			<semantic:customFooterContent>
+				<HBox class="footer" width="100%" height="100%"></HBox>
+			</semantic:customFooterContent>
+		</semantic:DetailPage>
+	</App>
+</mvc:View>
