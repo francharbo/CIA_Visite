@@ -39,5 +39,21 @@
 		"Designation": "Rangement de la livraison materiele de la journée"
 	}, {
 		"Designation": "Acheminement des animaux"
+	}],
+
+	"Frequence": [{
+		"text": "Immédiat"
+	}, {
+		"text": "Journalier"
+	}, {
+		"text": "Hebdomadaire"
+	}, {
+		"text": "Mensuel"
+	}],
+
+	"Statut": [{
+		"text": "Ouvert"
+	}, {
+		"text": "Fermée"
 	}]
 }

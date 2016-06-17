@@ -13,7 +13,7 @@
 			<ObjectHeader id="objectHeader"/>
 			<IconTabBar id="iconTabBar" class="sapUiResponsiveContentPadding">
 				<items>
-					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}">
+					<IconTabFilter id="iconTabBarFilter1" icon="sap-icon://hint" tooltip="{i18n>detailIconTabBarInfo}" iconColor="Positive">
 						<f:SimpleForm title="Participants" editable="true" layout="ResponsiveGridLyaout">
 							<Label text="Pilote"/>
 							<Input value="{Visite>Pilote/Prenom}"/>
@@ -34,7 +34,7 @@
 							<Label text="Thème"/>
 							<Input value="{Visite>Theme/Description}"/>
 							<Label text="Evaluation"/>
-							<com:RatingIndicator value="{Visite>Rating}" editable="true"/>
+							<RatingIndicator value="{Visite>Rating}" editable="true"/>
 						</f:SimpleForm>
 						<Bar>
 							<contentRight>
@@ -43,7 +43,7 @@
 						</Bar>
 					</IconTabFilter>
 					<IconTabFilter id="iconTabBarFilter3" icon="sap-icon://competitor" tooltip="Best Practices">
-						<Table headerText="Best Practices" items="{/BP}">
+						<Table headerText="Best Practices" items="{Visite>BP}">
 							<columns>
 								<Column>
 									<Text text="Id"/>
@@ -58,19 +58,19 @@
 							<items>
 								<ColumnListItem>
 									<cells>
-										<Text text="{ID}"/>
-										<Text text="{Description}"/>
-										<Text text="{A_partager}"/>
+										<Input value="{Visite>ID}"/>
+										<Input value="{Visite>Description}"/>
+										<Input value="{Visite>A_partager}"/>
 									</cells>
 								</ColumnListItem>
 							</items>
 						</Table>
 					</IconTabFilter>
 					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://message-warning" tooltip="Risques">
-						<Table headerText="Risques" items="{/Risque}">
+						<Table headerText="Risques" items="{Visite>Risque}">
 							<columns>
 								<Column>
-									<Text text="Id"/>
+									<Text text="Description"/>
 								</Column>
 								<Column>
 									<Text text="Pratique à risque"/>
@@ -82,9 +82,9 @@
 							<items>
 								<ColumnListItem>
 									<cells>
-										<Text text="{Description}"/>
-										<Text text="{Pratique_a_risque}"/>
-										<Text text="{Situation_a_risque}"/>
+										<Input value="{Visite>Description}"/>
+										<Input value="{Visite>Pratique_a_risque}"/>
+										<Input value="{Visite>Situation_a_risque}"/>
 									</cells>
 								</ColumnListItem>
 							</items>

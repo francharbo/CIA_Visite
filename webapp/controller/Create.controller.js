@@ -8,23 +8,27 @@ sap.ui.define([
 
 		onInit: function() {
 			//required
+
+			that = this;
+			
+			
+			this.getRouter().getRoute("create").attachPatternMatched(this._onObjectMatched, this);
+		},
+		_onObjectMatched: function(){
 			var model = this.getOwnerComponent().getModel("Visite").getProperty("/Visites");
 			var num = model.length + 1;
 			this.Id = "000" + num.toString();
 			this.getView().byId("id").setText(this.Id);
-			that = this;
 			this.getView().setModel(this.getOwnerComponent().getModel("Listes"));
-
 		},
-
 		onValidate: function() {
 			var form = this.getView().byId("form").getContent();
 			var allValid = true;
 			for (var i in form) {
-				if (form[i].getValue) {
+				if (form[i].getValue && typeof form[i].getValue() === "string") {
 					var control = form[i];
 					that.mandatoryInput(control.getId());
-					if (control.getValue() === "") {
+					if (control.getValue() === "" ) {
 						allValid = false;
 						that.mandatoryInput(control.getId());
 					}
@@ -39,12 +43,13 @@ sap.ui.define([
 				var secteur = this.getView().byId("Secteur").getValue();
 				var theme = this.getView().byId("Theme").getValue();
 				var participant = this.getView().byId("Participant").getValue();
-
+				var rating = this.getView().byId("rating").getValue();
+				
 				model.push({
 					"ID": "Avr" + site.substring(0,3) + "-" + this.Id,
 					"Date": date,
 					"Statut": "Open",
-					"Rating": "",
+					"Rating": rating,
 					"Participant": participant,
 					"Theme": {
 						"ID": "T001",
@@ -68,15 +73,24 @@ sap.ui.define([
 						"Nom": copilote.substring(copilote.indexOf(" ") + 1),
 						"Prenom": copilote.substring(0,copilote.indexOf(" ") - 1)
 					},
-					"Risque": [{}],
-					"BP": [{}]
+					"Risque": [],
+					"BP": []
 				});
 				this.getOwnerComponent().getModel("Visite").setProperty("/Visites",model);
 				var id = model.length - 1;
 				this.getRouter().navTo("detail",{
 					Id: id
 				});
-				
+				for (var j in form) {
+				if (form[j].getValue && typeof form[j].getValue() === "string") {
+					control = form[j];
+					control.setValue("");
+				}
+				else if(form[j].getValue){
+					control = form[j];
+					control.setValue(0);
+				}
+			}	
 			}
 		},
 		onCancel: function() {

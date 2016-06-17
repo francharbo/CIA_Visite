@@ -33,18 +33,36 @@
 			"Pratique_a_risque": "oui",
 			"Situation_a_risque": "non",
 			"Action": [{
-				"ID":"A00001",
-				"Description":"A demandé au chauffeur de fermer le caisson",
-				"DateDebut":"05/01/2016",
-				"DateFin":"01/05/2016",
-				"Statut":"Fermée",
-				"Responsables":"Roche du Luart"
+				"ID": "A00001",
+				"Description": "A demandé au chauffeur de fermer le caisson",
+				"DateDebut": "05/01/2016",
+				"DateFin": "01/05/2016",
+				"Frequence": "Hebdomadaire",
+				"Statut": "Fermée",
+				"nombreOccurences": "2",
+				"Suivi": [{
+					"Date": "05/01/2016",
+					"icon": "sap-icon://message-success"
+				}, {
+					"Date":"01/05/2016",
+					"icon": "sap-icon://message-error"
+				}],
+				"Responsables": "Roche du Luart"
 			}]
 		}],
 		"BP": [{
 			"ID": "BP00001",
 			"Description": "Soutenir le flexible pour éviter sa chute à terre",
-			"A_partager": "Oui"
+			"A_partager": "Oui",
+			"Action": [{
+				"ID": "A00001",
+				"Description": "A demandé au chauffeur de fermer le caisson",
+				"DateDebut": "05/01/2016",
+				"DateFin": "01/05/2016",
+				"Frequence": "Hebdomadaire",
+				"Statut": "Fermée",
+				"Responsables": "Roche du Luart"
+			}]
 		}]
 	}, {
 		"ID": "AvrAgr-0002",

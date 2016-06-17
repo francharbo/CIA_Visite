@@ -1,5 +1,5 @@
 <mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.m.semantic" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
-	xmlns:com="sap.ui.commons" controllerName="fr.ar.cia.controller.RisqueDetail">
+	xmlns:com="sap.ui.commons" controllerName="fr.ar.cia.controller.BPDetail">
 	<App>
 		<semantic:DetailPage>
 		<semantic:customHeaderContent>
@@ -28,9 +28,6 @@
 								<Column>
 									<Text text="Statut"/>
 								</Column>
-								<Column>
-									<Text text="Suivi"/>
-								</Column>
 							</columns>
 							<items>
 								<ColumnListItem type="Navigation" press="editRisque">
@@ -39,7 +36,6 @@
 										<Text text="{Visite>Responsables}"/>
 										<ObjectIdentifier title="{Visite>DateDebut}" text="{Visite>DateFin}"/>
 										<Text text="{Visite>Statut}"/>
-										<Button text="{Visite>nombreOccurences}" press="suiviPopover"/>
 									</cells>
 								</ColumnListItem>
 							</items>

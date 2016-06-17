@@ -34,7 +34,7 @@
 							<Label text="Thème"/>
 							<Text text="{/Theme/Description}"/>
 							<Label text="Evaluation"/>
-							<com:RatingIndicator value="{/Rating}" editable="false"/>
+							<RatingIndicator value="{/Rating}" editable="false"/>
 						</f:SimpleForm>
 						<Bar>
 							<contentRight>
@@ -43,9 +43,9 @@
 							</contentRight>
 						</Bar>
 					</IconTabFilter>
-					<IconTabFilter id="iconTabBarFilter3" icon="sap-icon://competitor" tooltip="Best Practices">
+					<IconTabFilter id="iconTabBarFilter3" icon="sap-icon://competitor" tooltip="Best Practices" >
 						<Table headerText="Best Practices" items="{/BP}">
-							<columns>
+							<columns >
 								<Column>
 									<Text text="Id"/>
 								</Column>
@@ -57,7 +57,7 @@
 								</Column>
 							</columns>
 							<items>
-								<ColumnListItem>
+								<ColumnListItem type="Navigation" press="BPDetails">
 									<cells>
 										<Text text="{ID}"/>
 										<Text text="{Description}"/>
@@ -66,12 +66,18 @@
 								</ColumnListItem>
 							</items>
 						</Table>
+						<Bar>
+							<contentRight>
+								<Button icon="sap-icon://add" type="Accept" text="Ajouter" press="addBP"/>
+								<Button type="Emphasized" text="Editer" press="onEdit" icon="sap-icon://edit"/>
+							</contentRight>
+						</Bar>
 					</IconTabFilter>
 					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://message-warning" tooltip="Risques">
 						<Table headerText="Risques" items="{/Risque}">
 							<columns>
 								<Column>
-									<Text text="Id"/>
+									<Text text="Description"/>
 								</Column>
 								<Column>
 									<Text text="Pratique à risque"/>
@@ -83,13 +89,19 @@
 							<items>
 								<ColumnListItem type="Navigation" press="RisqueDetails">
 									<cells>
-										<Text text="{Description}"/>
+										<ObjectIdentifier title="{ID}" text="{Description}"/>
 										<Text text="{Pratique_a_risque}"/>
 										<Text text="{Situation_a_risque}"/>
 									</cells>
 								</ColumnListItem>
 							</items>
 						</Table>
+						<Bar>
+							<contentRight>
+								<Button icon="sap-icon://add" type="Accept" text="Ajouter" press="addRisque"/>
+								<Button type="Emphasized" text="Editer" press="onEdit" icon="sap-icon://edit"/>
+							</contentRight>
+						</Bar>
 					</IconTabFilter>
 				</items>
 			</IconTabBar>

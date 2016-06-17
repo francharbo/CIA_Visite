@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Popover showHeader="false" contentWidth="320px" contentHeight="500px" placement="Auto">
+		<List id="listSuivi" items="{Visite>Suivi}" growing="true" growingScrollToLoad="true">
+			<items>
+				<!--<ObjectStatus state="{Visite>suivi}" text="{Visite>Date}"/>-->
+				<ObjectListItem title="{Visite>Date}" icon="{Visite>icon}" type="Active" press="changeIcon"/>
+			</items>
+		</List>
+	</Popover>
+</core:FragmentDefinition>

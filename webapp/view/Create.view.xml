@@ -1,5 +1,6 @@
 <mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="fr.ar.cia.controller.Create"
-	xmlns:semantic="sap.m.semantic" xmlns:html="http=//www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form">
+	xmlns:semantic="sap.m.semantic" xmlns:html="http=//www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form"
+	xmlns:com="sap.ui.commons">
 	<App>
 		<semantic:DetailPage>
 			<semantic:customHeaderContent>
@@ -36,6 +37,8 @@
 					</ComboBox>
 					<Label text="Participant" required="true"/>
 					<Input id="Participant"/>
+					<Label text="Evaluation"/>
+					<RatingIndicator id="rating" editable="true"/>		
 				</f:SimpleForm>
 				<Bar>
 					<contentRight>

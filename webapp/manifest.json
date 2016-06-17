@@ -139,6 +139,30 @@
 						"master",
 						"risquedetail"
 					]
+				},
+				{
+					"pattern": "bpdetail/{visiteId}/{BPId}",
+					"name": "bpdetail",
+					"target": [
+						"master",
+						"bpdetail"
+					]
+				},
+				{
+					"name": "actionEdit",
+					"pattern": "actionEdit/{visiteId}/{RisqueId}/{actionId}",
+					"target": [
+						"master",
+						"actionEdit"
+					]
+				},
+				{
+					"name": "actionBPEdit",
+					"pattern": "actionBPEdit/{visiteId}/{BPId}/{actionId}",
+					"target": [
+						"master",
+						"actionBPEdit"
+					]
 				}
 			],
 			"targets": {
@@ -168,6 +192,11 @@
 					"viewId": "risquedetail",
 					"viewLevel": 2
 				},
+				"bpdetail": {
+					"viewName": "BPDetail",
+					"viewId": "bpdetail",
+					"viewLevel": 2
+				},
 				"detailObjectNotFound": {
 					"viewName": "DetailObjectNotFound",
 					"viewId": "detailObjectNotFound"
@@ -179,6 +208,14 @@
 				"notFound": {
 					"viewName": "NotFound",
 					"viewId": "notFound"
+				},
+				"actionEdit": {
+					"viewName": "ActionEdit",
+					"viewId": "actionEdit"
+				},
+				"actionBPEdit": {
+					"viewName": "ActionBPEdit",
+					"viewId": "actionBPEdit"
 				}
 			}
 		}
