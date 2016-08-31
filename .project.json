@@ -12,7 +12,7 @@
     "excludedFiles": [
       "test.html"
     ],
-    "buildRequired": false,
+    "buildRequired": true,
     "lastBuildDateTime": "Fri, 17 Jun 2016 16:11:40 GMT"
   },
   "dataBinding": {},
@@ -26,10 +26,15 @@
       "templateId": "ui5template.basicSAPUI5ApplicationComponent",
       "templateVersion": "1.4.0",
       "dateTimeStamp": "Mon, 06 Jun 2016 13:05:52 GMT"
+    },
+    {
+      "templateId": "servicecatalog.connectivityComponent",
+      "templateVersion": "0.0.0",
+      "dateTimeStamp": "Tue, 12 Jul 2016 15:52:34 GMT"
     }
   ],
   "mockpreview": {
-    "mockUri": "/sap/opu/odata/sap/ZGW_PRODUCTS_MBE_SRV/",
+    "mockUri": "/sap/opu/odata/sap/ZGW_PRODUCTS_MBE_SRV",
     "metadataFilePath": "localService/metadata.xml",
     "loadJSONFiles": false,
     "loadCustomRequests": false,
@@ -58,5 +63,11 @@
     "account": "a33c3886c",
     "name": "ciavisite",
     "lastVersionWeTriedToDeploy": "1.0.2"
+  },
+  "hybrid": {
+    "backendDestination": "PMH"
+  },
+  "hybrid.facadeconfig": {
+    "bFacade": true
   }
 }

@@ -15,25 +15,22 @@
 					<Text id="text" text ="{Visite>ID}"/>
 					<Label text="Description" required="true"/>
 					<Input value="{Visite>Description}"/>
-					<Label text="Date de Début" required="true"/>
-					<DateTimeInput value="{Visite>DateDebut}" />
-					<Label text="Date de Fin" required="true"/>
-					<DateTimeInput value="{Visite>DateFin}"/>
-					<Label text="Fréquence" required="true"/>
-					<ComboBox id="cbbox" value="{Visite>Frequence}" items="{Listes>/Frequence}">
-						<core:ListItem text="{Listes>text}"></core:ListItem>
-					</ComboBox>
 					<Label text="Responsable" required="true"/>
-					<ComboBox id="responsable" value="{Visite>Responsables}" visible="{= ${Visite>Frequence} !== 'Immédiat'}"
-					items = "{Listes>Pilote}">
+					<ComboBox id="responsable" value="{Visite>Responsables}" items="{Listes>Pilote}" visible="{= ${Visite>Frequence} !== 'Immédiat'}">
 						<core:ListItem text="{Listes>Nom} {Listes>Prenom}"/>
 					</ComboBox>
-					<Label text="Nombre d'Occurences" required="true"/>
-					<Input value="{Visite>nombreOccurences}" visible="{= ${Visite>Frequence} !== 'Immédiat'}"/>
 					<Label text="Statut" required="true"/>
 					<ComboBox value="{Visite>Statut}" items="{Listes>/Statut}">
 						<core:ListItem text="{Listes>text}"/>
 					</ComboBox>
+					<Label text="Fréquence" required="true"/>
+					<ComboBox id="cbbox" value="{Visite>Frequence}" items="{Listes>/Frequence}" selectionChange="onSelectionChange">
+						<core:ListItem text="{Listes>text}"></core:ListItem>
+					</ComboBox>
+					<Label text="Date de Début" required="true"/>
+					<DateTimeInput value="{Visite>DateDebut}" />
+					<Label id="dateFinLabel" text="Date de Fin"/>
+					<DateTimeInput id="dateFin" value="{Visite>DateFin}" />
 				</f:SimpleForm>
 				<Bar>
 					<contentRight>

@@ -1,0 +1,32 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">
+	<Dialog id="BPActionDialog" title="Ajouter une action" type="Message" afterClose="onAfterClose">
+		<content>
+			<Label text="Id" width="30%" />
+			<Input id="actionId" type="Text" width="70%" />
+			<Label text="Description" width="30%"/>
+			<Input id="desc" type="Text" width="70%" />
+			<Label text="Responsable" width="30%" />
+			<ComboBox id="resp" items="{/Pilote}" width="70%">
+				<core:ListItem text="{Nom} {Prenom}"/>
+			</ComboBox>
+			<Label text="Statut" width="30%" />
+			<ComboBox id="statut" items="{/Statut}" width="70%">
+				<core:ListItem text="{text}"/>
+			</ComboBox>
+			<Label text="Fréquence" width="30%"/>
+			<ComboBox id="freq" items="{/Frequence}" width="70%" selectionChange="onSelectionChange">
+				<core:ListItem text="{text}"/>
+			</ComboBox>
+			<Label id="dateDebLabel" text="Date de début" width="30%" visible="false"/>
+			<DatePicker id="dateDeb" displayFormat="dd.MM.yyyy" width="70%" visible="false"/>
+			<Label id="dateRangeLabel" text="Période d'action" width="30%" visible="false"/>
+			<DateRangeSelection id="dateRange" displayFormat="dd/MM/yyyy" width="70%" visible="false"/>
+		</content><!-- sap.ui.core.Control -->
+		<beginButton>
+			<Button text="Valider" type="Accept" press="onValider"/>
+		</beginButton><!-- sap.m.Button -->
+		<endButton>
+			<Button text="Annuler" press="onAnnuler"/>
+		</endButton><!-- sap.m.Button -->
+	</Dialog>
+</core:FragmentDefinition>

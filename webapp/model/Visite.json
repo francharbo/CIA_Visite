@@ -101,7 +101,7 @@
 		}],
 		"BP": [{
 			"ID": "BP00002",
-			"Description": "Met sa clé et virifie que le cran est bien enclenché",
+			"Description": "Met sa clé et vérifie que le cran est bien enclenché",
 			"A_partager": "Non"
 		}]
 	}, {

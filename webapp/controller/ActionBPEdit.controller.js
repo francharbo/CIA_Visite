@@ -49,6 +49,24 @@ var beforechange;
 				visiteId: this.visite,
 				BPId: this.Id
 			});
+		},
+		
+		onSelectionChange: function(oEvent) {
+			var select = oEvent.getSource().getValue();
+			var responsable = this.byId("responsable");
+			var dateFin = this.byId("dateFin");
+			
+			if(select === "Immédiat") {
+				dateFin.setValue("");
+				dateFin.setVisible(false);
+				responsable.setValue("");
+				responsable.setVisible(false);
+			} else {
+				dateFin.setVisible(true);
+				responsable.setVisible(true);
+			}
+			
+			this.byId("cbbox").setValue(select);
 		}
 		
 	});

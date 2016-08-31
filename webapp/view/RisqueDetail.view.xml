@@ -44,6 +44,11 @@
 								</ColumnListItem>
 							</items>
 						</Table>
+						<Bar>
+							<contentRight>
+								<Button icon="sap-icon://add" type="Accept" text="Ajouter" press="onAddAction"/>
+							</contentRight>
+						</Bar>
 					</l:content>
 					<!-- sap.ui.core.Control -->
 				</l:VerticalLayout>

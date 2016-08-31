@@ -44,7 +44,7 @@
 						</Bar>
 					</IconTabFilter>
 					<IconTabFilter id="iconTabBarFilter3" icon="sap-icon://competitor" tooltip="Best Practices" >
-						<Table headerText="Best Practices" items="{/BP}">
+						<Table id="BPTable" headerText="Best Practices" items="{/BP}">
 							<columns >
 								<Column>
 									<Text text="Id"/>
@@ -68,13 +68,13 @@
 						</Table>
 						<Bar>
 							<contentRight>
-								<Button icon="sap-icon://add" type="Accept" text="Ajouter" press="addBP"/>
+								<Button icon="sap-icon://add" type="Accept" text="Ajouter" press="onAddBP"/>
 								<Button type="Emphasized" text="Editer" press="onEdit" icon="sap-icon://edit"/>
 							</contentRight>
 						</Bar>
 					</IconTabFilter>
 					<IconTabFilter id="iconTabBarFilter2" icon="sap-icon://message-warning" tooltip="Risques">
-						<Table headerText="Risques" items="{/Risque}">
+						<Table id="RisqueTable" headerText="Risques" items="{/Risque}">
 							<columns>
 								<Column>
 									<Text text="Description"/>
@@ -98,7 +98,7 @@
 						</Table>
 						<Bar>
 							<contentRight>
-								<Button icon="sap-icon://add" type="Accept" text="Ajouter" press="addRisque"/>
+								<Button icon="sap-icon://add" type="Accept" text="Ajouter" press="onAddRisque"/>
 								<Button type="Emphasized" text="Editer" press="onEdit" icon="sap-icon://edit"/>
 							</contentRight>
 						</Bar>

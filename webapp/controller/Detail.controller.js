@@ -3,7 +3,7 @@ sap.ui.define([
 	"fr/ar/cia/controller/BaseController",
 	"sap/ui/model/json/JSONModel",
 	"fr/ar/cia/model/formatter"
-], function(BaseController, JSONModel, formatter) {
+], function(BaseController, JSONModel, formatter, History) {
 	"use strict";
 	var that;
 	return BaseController.extend("fr.ar.cia.controller.Detail", {
@@ -172,14 +172,119 @@ sap.ui.define([
 
 			});
 		},
-
-		addBP: function(oEvent) {
-			var modelBP = that.getOwnerComponent().getModel("Visite").getProperty("/Visites/" + this.Id);
-
+		
+		onAnnulerAddBP: function(oEvent) {
+			this.oPersonalizationDialog.close();
+		},
+		
+		onAddBP: function() {
+			var dialog = new sap.m.Dialog({
+				id: "addBPDialog",
+				title: "Ajouter un Best Practice",
+				type: "Message",
+				content: [
+					new sap.m.Label({text:"Id", width:"30%"}),
+					new sap.m.Input({id:"bpId", width:"70%"}),
+					new sap.m.Label({text:"Description", width:"30%"}),
+					new sap.m.Input({id:"bpDesc", width:"70%"}),
+					new sap.m.Label({text:"A partager", width:"30%"}),
+					new sap.m.Input({id:"bpShare", width:"70%"})
+				],
+				beginButton: new sap.m.Button({
+					text: "Valider",
+					type: "Accept",
+					press: function() {
+						var id = sap.ui.getCore().byId("bpId").getValue();
+						var desc = sap.ui.getCore().byId("bpDesc").getValue();
+						var share = sap.ui.getCore().byId("bpShare").getValue();
+					
+						if (id === "" || desc === "" || share === "") {
+							sap.m.MessageToast.show("Merci de renseigner tous les champs");
+						} else {
+							that.addBP(id, desc, share);
+						}
+					}
+				}),
+				endButton: new sap.m.Button({
+					text: "Annuler",
+					press: function() {
+						dialog.close();
+					}
+				}),
+				afterClose: function() {
+					dialog.destroy();
+				}
+			});
+			dialog.open();
 		},
 
-		addRisque: function() {
+		addBP: function(id, desc, share) {
+			var modelBP = that.getOwnerComponent().getModel("Visite").getProperty("/Visites/" + this.Id);
+			modelBP.BP.push({
+				"ID": id,
+				"Description": desc,
+				"A_partager": share,
+				"Action": []
+			});
+			this.getOwnerComponent().getModel("Visite").setProperty("/Visites/" + this.Id, modelBP);
+		},
+		
+		onAddRisque: function() {
+			var dialog = new sap.m.Dialog({
+				id: "addBPDialog",
+				title: "Ajouter un risque",
+				type: "Message",
+				content: [
+					new sap.m.Label({text:"Id", width:"30%"}),
+					new sap.m.Input({id:"risqueId", width:"70%"}),
+					new sap.m.Label({text:"Description", width:"30%"}),
+					new sap.m.Input({id:"risqueDesc", width:"70%"}),
+					new sap.m.Label({text:"Pratique à risque", width:"30%"}),
+					new sap.m.Input({id:"risquePrac", width:"70%"}),
+					new sap.m.Label({text:"Situation à risque", width:"30%"}),
+					new sap.m.Input({id:"risqueSit", width:"70%"})
+				],
+				beginButton: new sap.m.Button({
+					text: "Valider",
+					type: "Accept",
+					press: function() {
+						var id = sap.ui.getCore().byId("risqueId").getValue();
+						var desc = sap.ui.getCore().byId("risqueDesc").getValue();
+						var practice = sap.ui.getCore().byId("risquePrac").getValue();
+						var security = sap.ui.getCore().byId("risqueSit").getValue();
+					
+						if (id === "" || desc === "" || practice === "" || security === "") {
+							sap.m.MessageToast.show("Merci de renseigner tous les champs");
+						} else {
+							that.addRisque(id, desc, practice, security);
+							that.byId("RisqueTable").getModel().refresh();;
+							dialog.close();
+						}
+					}
+				}),
+				endButton: new sap.m.Button({
+					text: "Annuler",
+					press: function() {
+						dialog.close();
+					}
+				}),
+				afterClose: function() {
+					dialog.destroy();
+				}
+			});
+			dialog.open();
+		},
 
+		addRisque: function(id, desc, practice, security) {
+			var modelRisque = that.getOwnerComponent().getModel("Visite").getProperty("/Visites/" + this.Id);
+			modelRisque.Risque.push({
+				"ID": id,
+				"Description": desc,
+				"Pratique_a_risque": practice,
+				"Situation_a_risque": security,
+				"Action": []
+			});
+			this.getOwnerComponent().getModel("Visite").setProperty("/Visites/" + this.Id, modelRisque);
 		}
 
 	});
